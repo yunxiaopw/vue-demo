@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../assets/js/vue.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <h1>slot</h1>
+    <div id="app">
+        <zpw>
+            <span slot="blogUrl">{{zpwData.blogUrl}}</span>
+            <span slot="netName">{{zpwData.netName}}</span>
+            <span slot="skill">{{zpwData.skill}}</span>
+        </zpw>
+    </div>
+
+    <template id="tep">
+        <div>
+            <p>博客地址:<slot name="blogUrl"></slot></p>
+            <p>网名:<slot name="netName"></slot></p>
+            <p>技术类型:<slot name="skill"></slot></p>
+        </div>
+    </template>
+    
+    <script>
+        var zpw = {
+            template: "#tep"
+        }
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                zpwData: {
+                    blogUrl: 'http://jspang.com',
+                    netName: 'zpw',
+                    skill: 'web前端'
+                }
+            },
+            components: {
+                'zpw': zpw
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../assets/js/vue.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <h1>组件</h1>
+    <hr>
+    <div id='app'>
+        <zpw></zpw>  
+        <panda></panda>
+    </div>
+    <script type="text/javascript">   
+        Vue.component('zpw',{
+            template:`
+                <div>我是全局的zpw组件</div>
+            `
+        })
+        
+        var app = new Vue({
+            el: "#app",
+            components:{
+                "panda":{
+                    template:`<div>我是局部的panda组件</div>`
+                }
+            }    
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../assets/js/vue.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <h1>watch option</h1>
+    <hr>
+    <div id="app">
+        <p>今日温度：{{tem}}</p>
+        <p>创意建议：{{chuanyi}}</p>
+        <p><button @click="up()">升高</button></p>
+        <p><button @click="down">降低</button></p>
+    </div>
+    <script type="text/javascript">
+        var btn = {
+            template: '<button>组件add</button>'
+        }
+        var app = new Vue({
+            el: "#app",
+            data: {
+                tem: 14,
+                chuanyi: '长袖'
+            },
+            components: {
+                "btn": btn
+            },
+            methods: {
+                up() {
+                    this.tem += 5;
+                },
+                down() {
+                    this.tem -= 5;
+                }
+            },
+            watch: {
+                tem(newVal, oldVal) {
+                    if (newVal >= 26) {
+                        this.chuanyi = "短袖"
+                    } else {
+                        this.chuanyi = "长袖"
+
+                    }
+                }
+            },
+        })
+        // app.$watch('tem', function (newVal, oldVal) {
+        //     if (newVal >= 26) {
+        //         this.chuanyi = "短袖"
+        //     } else {
+        //         this.chuanyi = "长袖"
+
+        //     }
+        // })
+    </script>
+</body>
+
+</html>
