@@ -1,28 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
+      <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <br><br>
-
-    <router-link to="/user/5">user/5</router-link>
-    <router-link to="/user/6">user/6</router-link>
-
-    <router-view />
+    <router-view/>
   </div>
 </template>
-
-<script>
-  export default {
-    watch: {
-      $route(to,from){
-        console.log(to)
-        console.log(from)
-      }
-    },
-  }
-</script>
 
 <style>
 #app {

@@ -1,30 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import User from '../views/User.vue'
+import Count from '../components/Count.vue'
 
-Vue.use(VueRouter)  //初始化router
+Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',    //别名
+    name: 'Home',
     component: Home
   },
   {
-    path: '/user/:id',
-    name: 'User',    //别名
-    component: User
+    path: '/about',
+    name: 'About',    
+    component: () => import('../views/About.vue')
   },
   {
-    path: '/about',
-    name: 'About',  
-    component: () => import('../views/About.vue')
+    path:'/count',
+    component: Count
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

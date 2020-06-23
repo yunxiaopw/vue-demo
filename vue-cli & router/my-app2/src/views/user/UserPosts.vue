@@ -1,10 +1,10 @@
 <template>
-    <h3>user id :{{$route.params.id}}</h3>
+  <h3>UserPosts个人岗位组件：{{$route.params.id}}</h3>
 </template>
 
 <script>
 export default {
-    name:"User"
+  name: "UserPosts"
 };
 </script>
 <style scoped>
